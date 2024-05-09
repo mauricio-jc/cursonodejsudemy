@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mauricio-jc/cursonodejsudemy/issues"
   },
-  "homepage": "https://github.com/mauricio-jc/cursonodejsudemy#readme"
+  "homepage": "https://github.com/mauricio-jc/cursonodejsudemy#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
