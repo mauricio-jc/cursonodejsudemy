@@ -1,4 +1,6 @@
 const express = require('express');
+const message = require('./module_test');
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -17,4 +19,5 @@ app.get('/news', (req, res) => {
 
 app.listen(3000, () => {
   console.log('Server Up');
+  console.log(message());
 });
