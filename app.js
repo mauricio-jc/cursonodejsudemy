@@ -1,23 +1,9 @@
-const express = require('express');
-const message = require('./module_test');
+const app = require('./config/server');
 
-const app = express();
-
-app.set('view engine', 'ejs');
-
-app.get('/', (req, res) => {
-  res.render('home/index');
-});
-
-app.get('/add/new', (req, res) => {
-  res.render('admin/add_new');
-});
-
-app.get('/news', (req, res) => {
-  res.render('news/list');
-});
+const routeHome = require('./app/routes/home')(app);
+const routeNews = require('./app/routes/news')(app);
+const routeAddNew = require('./app/routes/add_new')(app);
 
 app.listen(3000, () => {
   console.log('Server Up');
-  console.log(message());
 });
