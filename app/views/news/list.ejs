@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
+	<html lang="pt-BR">
 		<head>
 			<meta charset="utf-8"/>
 			<title>Notícias</title>
 		</head>
 	<body>
-
 		<h1>Notícias</h1>
+    <hr>
 
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < news.length; i++)  {%>
+          <tr>
+            <td>
+              <%= news[i].id %>
+            </td>
+            <td>
+              <%= news[i].title %>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
 	</body>
 </html>
