@@ -1,9 +1,7 @@
-const db = require('../../config/database');
-
 module.exports = (app) => {
-  const connection = db();
-  
   app.get('/news', (req, res) => {
+    const connection = app.config.database();
+    
     connection.query('SELECT * FROM news', (error, results) => {
       if(error) {
         throw error;
