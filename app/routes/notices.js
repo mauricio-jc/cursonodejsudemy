@@ -1,13 +1,11 @@
 module.exports = (app) => {
   app.get('/notices', (req, res) => {
     const connection = app.config.database();
+    const noticesModel = app.app.models.notice_model;
     
-    connection.query('SELECT * FROM notices', (error, results) => {
-      if(error) {
-        throw error;
-      }
-
-      res.render('notices/list', { news: results });
+    noticesModel.listAll(connection, (error, results) => {
+      if(error) throw error;
+      res.render('notices/list', { notices: results });
     });
   });
 }
