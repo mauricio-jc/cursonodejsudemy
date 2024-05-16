@@ -4,6 +4,13 @@ module.exports = (app) => {
   });
 
   app.post('/notice/save', (req, res) => {
-    res.send('Chegou aqui');
+    var data = req.body;
+    const connection = app.config.database();
+    const noticesModel = app.app.models.notice_model;
+    
+    noticesModel.create(data, connection, (error, results) => {
+      if(error) throw error;
+      res.redirect('/notices');
+    });
   });
 }
