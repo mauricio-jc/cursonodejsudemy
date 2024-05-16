@@ -1,9 +1,9 @@
 module.exports = (app) => {
   app.get('/notice', (req, res) => {
     const connection = app.config.database();
-    const noticesModel = app.app.models.notice_model;
+    const noticeDao = new app.app.models.notice_dao(connection);
     
-    noticesModel.find(connection, (error, result) => {
+    noticeDao.find((error, result) => {
       if(error) throw error;
       res.render('notices/view', { notice: result });
     });

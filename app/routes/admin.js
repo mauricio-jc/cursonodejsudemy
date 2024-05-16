@@ -6,9 +6,9 @@ module.exports = (app) => {
   app.post('/notice/save', (req, res) => {
     var data = req.body;
     const connection = app.config.database();
-    const noticesModel = app.app.models.notice_model;
+    const noticeDao = new app.app.models.notice_dao(connection);
     
-    noticesModel.create(data, connection, (error, results) => {
+    noticeDao.create(data, (error, results) => {
       if(error) throw error;
       res.redirect('/notices');
     });
