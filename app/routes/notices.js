@@ -1,11 +1,9 @@
 module.exports = (app) => {
   app.get('/notices', (req, res) => {
-    const connection = app.config.database();
-    const noticeDao = new app.app.models.notice_dao(connection);
-    
-    noticeDao.listAll((error, results) => {
-      if(error) throw error;
-      res.render('notices/list', { notices: results });
-    });
+    app.app.controllers.notice_controller.notices(app, req, res);
+  });
+
+  app.get('/notice', (req, res) => {
+    app.app.controllers.notice_controller.notice(app, req, res);
   });
 }

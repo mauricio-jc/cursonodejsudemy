@@ -8,7 +8,7 @@ class NoticeDAO {
   }
   
   find(callback) {
-    this._connection.query('SELECT * FROM notices WHERE id = 2', callback);
+    this._connection.query('SELECT * FROM notices WHERE id = 16', callback);
   }
   
   create(data, callback) {
