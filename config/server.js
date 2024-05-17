@@ -15,6 +15,8 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use(express.static('./app/public'));
+
 consign()
   .include('app/routes')
   .then('config/database.js')
