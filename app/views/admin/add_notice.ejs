@@ -8,29 +8,37 @@
 		<h1>Adicionar notícia</h1>
     <hr>
 
+    <% if(errors) { %>
+      <ul>
+        <% for(var i = 0; i < errors.length; i++) { %>
+          <li><%= errors[i].msg %></></li>
+        <% } %>
+      </ul>
+    <% } %>
+
     <form action="/notice/save" method="post">
       <label>Título:</label>
-      <input type="text" id="title" name="title">
+      <input type="text" id="title" name="title" value="<%= body?.title %>"/>
 
       <br><br>
 
       <label>Resumo:</label>
-      <input type="text" id="summary" name="summary">
+      <input type="text" id="summary" name="summary" value="<%= body?.summary %>">
 
       <br><br>
 
       <label>Descrição:</label>
-      <textarea id="description" name="description" rows="5" cols="30"></textarea>
+      <textarea id="description" name="description" rows="5" cols="30"><%= body?.description %></textarea>
 
       <br><br>
 
       <label>Autor:</label>
-      <input type="text" id="author" name="author">
+      <input type="text" id="author" name="author" value="<%= body?.author %>">
 
       <br><br>
 
       <label>Data da notícia:</label>
-      <input type="date" id="date_notice" name="date_notice">
+      <input type="date" id="date_notice" name="date_notice" value="<%= body?.date_notice %>">
 
       <br><br>
       
