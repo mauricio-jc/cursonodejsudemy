@@ -1,7 +1,8 @@
 const express = require('express');
 const consign = require('consign');
 const bodyParser = require('body-parser');
-const session = require('express-session')
+const session = require('express-session');
+const moment = require('moment');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -14,6 +15,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.locals.moment = moment;
 
 app.use(express.static('./app/public'));
 
