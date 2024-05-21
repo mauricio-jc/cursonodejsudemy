@@ -8,6 +8,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
+app.use(express.static('./app/public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
@@ -17,8 +18,6 @@ app.use(session({
 }));
 
 app.locals.moment = moment;
-
-app.use(express.static('./app/public'));
 
 consign()
   .include('app/routes')

@@ -1,48 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulário de cadastro de notícia</title>
+    <link rel="shortcut icon" href="images/favicon.ico"></link>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>
-	<body>
-		<h1>Adicionar notícia</h1>
-    <hr>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="/">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="notices">Notícias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="notice/add">Adicionar notícia</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <% if(errors) { %>
-      <ul>
-        <% for(var i = 0; i < errors.length; i++) { %>
-          <li><%= errors[i].msg %></></li>
-        <% } %>
-      </ul>
-    <% } %>
+    <div class="container">
+      <h1 class="mb-5">Adicionar notícia</h1>
+      <hr>
 
-    <form action="/notice/save" method="post">
-      <label>Título:</label>
-      <input type="text" id="title" name="title" value="<%= body?.title %>"/>
+      <% if(errors) { %>
+        <ul>
+          <% for(var i = 0; i < errors.length; i++) { %>
+            <li><%= errors[i].msg %></></li>
+          <% } %>
+        </ul>
+      <% } %>
 
-      <br><br>
+      <form action="/notice/save" method="post">
+        <label>Título:</label>
+        <input type="text" id="title" name="title" value="<%= body?.title %>"/>
 
-      <label>Resumo:</label>
-      <input type="text" id="summary" name="summary" value="<%= body?.summary %>">
+        <br><br>
 
-      <br><br>
+        <label>Resumo:</label>
+        <input type="text" id="summary" name="summary" value="<%= body?.summary %>">
 
-      <label>Descrição:</label>
-      <textarea id="description" name="description" rows="5" cols="30"><%= body?.description %></textarea>
+        <br><br>
 
-      <br><br>
+        <label>Descrição:</label>
+        <textarea id="description" name="description" rows="5" cols="30"><%= body?.description %></textarea>
 
-      <label>Autor:</label>
-      <input type="text" id="author" name="author" value="<%= body?.author %>">
+        <br><br>
 
-      <br><br>
+        <label>Autor:</label>
+        <input type="text" id="author" name="author" value="<%= body?.author %>">
 
-      <label>Data da notícia:</label>
-      <input type="date" id="date_notice" name="date_notice" value="<%= body?.date_notice %>">
+        <br><br>
 
-      <br><br>
-      
-      <button type="submit">Enviar</button>
-    </form>
-	</body>
+        <label>Data da notícia:</label>
+        <input type="date" id="date_notice" name="date_notice" value="<%= body?.date_notice %>">
+
+        <br><br>
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
