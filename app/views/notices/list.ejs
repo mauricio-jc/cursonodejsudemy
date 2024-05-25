@@ -31,28 +31,21 @@
       <h1 class="mb-5">Notícias</h1>
       <hr>
 
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Título</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(var i = 0; i < notices.length; i++) { %>
-            <tr>
-              <td>
-                <%= notices[i].id %>
-              </td>
-              <td>
-                <%= notices[i].title %>
-              </td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-
-      
+      <% if(notices.length > 0) { %>
+        <% for(var i = 0; i < notices.length; i++) { %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <small>Por <%= notices[i].author %></small>
+            <h5 class="card-title"><%= notices[i].title %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              <%= moment(notices[i].date_notice).format('DD/MM/YYYY') %>
+            </h6>
+            <p class="card-text"><%= notices[i].description %></p>
+            <a href="notice?id=<%= notices[i].id %>" class="card-link">Ver mais</a>
+          </div>
+        </div>
+        <% } %>
+      <% } %>      
     </div>
     
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

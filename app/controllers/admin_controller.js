@@ -14,7 +14,7 @@ module.exports.notice_save = (app, req, res) => {
   if(!validate.isEmpty()) {
     req.session.errors = validate.array();
     req.session.body = data;
-    res.redirect('/notice/add');
+    res.redirect('/notice_add');
     return;
   }    
 

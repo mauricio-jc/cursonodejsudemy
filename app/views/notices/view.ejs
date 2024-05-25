@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-	<html lang="pt-BR">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Notícia</title>
-		</head>
-	<body>
-		<h1>Notícia</h1>
-    <hr>
+<html lang="pt-BR">
+  	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title><%= notice[0].title %></title>
+	    <link rel="shortcut icon" href="images/favicon.ico"></link>
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  	</head>
+  	<body>
+    	<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+      		<div class="container">
+        		<a class="navbar-brand" href="/">Dashboard</a>
+        		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          			<span class="navbar-toggler-icon"></span>
+        		</button>
+        		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+          			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            			<li class="nav-item">
+              				<a class="nav-link" href="notices">Notícias</a>
+            			</li>
+            			<li class="nav-item">
+              				<a class="nav-link" href="notice_add">Adicionar notícia</a>
+            			</li>
+          			</ul>
+        		</div>
+      		</div>
+    	</nav>
 
-    <h4><%= notice[0].title %></h4>
-    <p><%= notice[0].description %></p>
-	</body>
+    	<div class="container">
+      		<h1><%= notice[0].title %></h1>
+      		<a href="notices" class="btn btn-success">Voltar</a>
+      		<hr>
+
+      		<p>
+      			<strong>Autor: </strong><%= notice[0].author %>
+      		</p>
+      		<p>
+      			<strong>Data: </strong><%= moment(notice[0].date_notice).format('DD/MM/YYYY') %>
+      		</p>
+      		<p>
+      			<strong>Descrição: </strong><%= notice[0].description %>
+      		</p>
+      	</div>
+
+		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  	</body>
 </html>

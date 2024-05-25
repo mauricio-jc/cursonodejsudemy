@@ -11,8 +11,8 @@ class NoticeDAO {
     this._connection.query('SELECT * FROM notices ORDER BY id DESC LIMIT 5', callback);
   }
   
-  find(callback) {
-    this._connection.query('SELECT * FROM notices WHERE id = 16', callback);
+  find(params, callback) {
+    this._connection.query(`SELECT * FROM notices WHERE id = ${params.id}`, callback);
   }
   
   create(data, callback) {

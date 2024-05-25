@@ -39,13 +39,13 @@
             <%= moment(notices[i].date_notice).format('DD/MM/YYYY') %>
           </h6>
           <p class="card-text"><%= notices[i].description %></p>
-          <a href="#" class="card-link">Ver mais</a>
+          <a href="notice?id=<%= notices[i].id %>" class="card-link">Ver mais</a>
         </div>
       </div>
       <% } %>
 
       <div class="text-center mt-5">
-        <a href="#" class="btn btn-primary">Ver todas as notícias</a>
+        <a href="notices" class="btn btn-primary">Ver todas as notícias</a>
       </div>
     </div>
     

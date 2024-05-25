@@ -32,40 +32,43 @@
       <hr>
 
       <% if(errors) { %>
-        <ul>
-          <% for(var i = 0; i < errors.length; i++) { %>
-            <li><%= errors[i].msg %></></li>
-          <% } %>
-        </ul>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <ul>
+            <% for(var i = 0; i < errors.length; i++) { %>
+              <li><%= errors[i].msg %></></li>
+            <% } %>
+          </ul>
+        </div>
       <% } %>
 
       <form action="/notice_save" method="post">
-        <label>Título:</label>
-        <input type="text" id="title" name="title" value="<%= body?.title %>"/>
+        <div class="mb-3">
+          <label class="form-label">Título:</label>
+          <input type="text" name="title" id="title" class="form-control" value="<%= body?.title %>">
+        </div>
 
-        <br><br>
+        <div class="mb-3">
+          <label class="form-label">Resumo:</label>
+          <input type="text" name="summary" id="summary" class="form-control" value="<%= body?.summary %>">
+        </div>
 
-        <label>Resumo:</label>
-        <input type="text" id="summary" name="summary" value="<%= body?.summary %>">
+        <div class="mb-3">
+          <label class="form-label">Descrição:</label>
+          <textarea id="description" name="description" class="form-control" rows="5" cols="30"><%= body?.description %></textarea>
+        </div>
 
-        <br><br>
+        <div class="mb-3">
+          <label class="form-label">Autor:</label>
+          <input type="text" name="author" id="author" class="form-control" value="<%= body?.author %>">
+        </div>
 
-        <label>Descrição:</label>
-        <textarea id="description" name="description" rows="5" cols="30"><%= body?.description %></textarea>
-
-        <br><br>
-
-        <label>Autor:</label>
-        <input type="text" id="author" name="author" value="<%= body?.author %>">
-
-        <br><br>
-
-        <label>Data da notícia:</label>
-        <input type="date" id="date_notice" name="date_notice" value="<%= body?.date_notice %>">
-
-        <br><br>
+        <div class="mb-3">
+          <label class="form-label">Data da notícia:</label>
+          <input type="date" name="date_notice" id="date_notice" class="form-control" value="<%= body?.date_notice %>">
+        </div>
         
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
     
